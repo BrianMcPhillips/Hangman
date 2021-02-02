@@ -31,4 +31,29 @@ function displayWord() {
   console.log(wordElement.innerText, innerWord);
 }
 
+// Available letter display
+window.addEventListener('keydown', e => {
+  if(e.KeyboardEvent.key >= 65 && e.KeyboardEvent.key <= 90) {
+    const letter = e.key;
+
+    if(selectedWord.includes(letter)) {
+      if(!correctLetters.includes(letter)) {
+        correctLetters.push(letter);
+
+        displayWord();
+      } else {
+        showNotification();
+      }
+    } else {
+      if(!wrongLetters.includes(letter)) {
+        wrongLetters.push(letter);
+
+        updateWrongLettersEl();
+      } else {
+        showNotification();
+      }
+    }
+  }
+});
+
 displayWord();
