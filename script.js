@@ -31,6 +31,20 @@ function displayWord() {
   console.log(wordElement.innerText, innerWord);
 }
 
+// Update wrong letters
+function updateWrongLettersEl() {
+  console.log('Update wrong');
+}
+
+// Show notification 
+function showNotification() {
+  notification.classList.add('show');
+
+  setTimeout(() => {
+    notification.classList.remove('show');
+  }, 2000);
+}
+
 // Available letter display
 window.addEventListener('keydown', e => {
   if(e.KeyboardEvent.key >= 65 && e.KeyboardEvent.key <= 90) {
